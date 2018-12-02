@@ -6,15 +6,16 @@ import fr.wildcodeschool.thewizardproject.models.*;
 public class App {
 
 	    public void start() {
-	    	
-	    	ServiceChangeDress serviceChangeDress = new ServiceChangeDress();
-	    	
-	    	Gandalf myWizard = new Gandalf(serviceChangeDress);
+	    	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
+
+	        WizardInterface myWizard = context.getBean("gandalfId", WizardInterface.class);
+
+	        context.close();
+	        
 	        System.out.println("");
 	    	System.out.println("******************");
 	        System.out.println(myWizard.giveAdvice());
 	        System.out.println("******************");
-	        
-	        System.out.println(myWizard.changeDress());
+	        System.out.println(myWizard.displayChangeDress());
 	    }
 }
