@@ -2,6 +2,12 @@ package fr.wildcodeschool.thewizardproject.models;
 
 public class Gandalf implements WizardInterface {
 	
+	private ServiceChangeDress serviceChangeDress;
+	
+	public Gandalf(ServiceChangeDress theServiceChangeDress) {
+		serviceChangeDress = theServiceChangeDress;
+	}
+	
 	@Override
 	public String giveAdvice() {
 		return "Fuyez, Pauvres Fous !";
@@ -9,7 +15,6 @@ public class Gandalf implements WizardInterface {
 
 	@Override
 	public String changeDress() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.serviceChangeDress.changeDress();
 	}
 }
